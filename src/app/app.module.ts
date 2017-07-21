@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// modules
+// importation of the module for deal with routes
+import { RoutingModule } from './app.routes';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -15,29 +19,32 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { Error404PageComponent } from './pages/error-404-page/error-404-page.component';
-
+import { AboutPageComponent } from './pages/about-page/about-page.component';
+import { PessoasService } from './providers/pessoas.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    MenuComponent,
-    SearchbarComponent,
-    LogoComponent,
-    CartbarComponent,
-    BannerComponent,
-    ProductListComponent,
-    ProductCardComponent,
-    FooterComponent,
-    HomePageComponent,
-    ProductsPageComponent,
-    ProductPageComponent,
-    Error404PageComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		MenuComponent,
+		SearchbarComponent,
+		LogoComponent,
+		CartbarComponent,
+		BannerComponent,
+		ProductListComponent,
+		ProductCardComponent,
+		FooterComponent,
+		HomePageComponent,
+		ProductsPageComponent,
+		ProductPageComponent,
+		Error404PageComponent,
+		AboutPageComponent
+	],
+	imports: [
+		BrowserModule,
+		RoutingModule
+	],
+	providers: [PessoasService],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
