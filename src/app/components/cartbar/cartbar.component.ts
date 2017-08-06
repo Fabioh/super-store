@@ -9,7 +9,10 @@ export class CartbarComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  clear() {
+
   }
 
+  ngOnInit() {
+  }
 }
