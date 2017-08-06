@@ -21,6 +21,7 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
 import { Error404PageComponent } from './pages/error-404-page/error-404-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { PessoasService } from './providers/pessoas.service';
+import { MenuService } from './providers/menu.service';
 
 @NgModule({
 	declarations: [
@@ -44,7 +45,10 @@ import { PessoasService } from './providers/pessoas.service';
 		BrowserModule,
 		RoutingModule
 	],
-	providers: [PessoasService],
+	providers: [
+		PessoasService,
+		MenuService
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<section class="hero outer is-fullheight animated slideInLeft">
+<section class="hero outer is-fullheight animated slideInLeft" [ngClass]="{'is-hidden': !(menuService.isMenuOpened())}">
   <div class="hero-body outer">
     <div class="container">
 
@@ -13,14 +13,14 @@
       <br />
 
       <ul>
-        <li >
-          <a class="columns is-mobile" >
+        <li *ngFor="let option of menuService.getOptions()">
+          <a class="columns is-mobile" [routerLink]="option.route">
             <div class="column has-text-right is-one-quarter">
-              <i class=""></i>
+              <i class="{{option.icon}}"></i>
             </div>
             <div class="column">
               <strong>
-                
+                {{option.text}}
               </strong>
             </div>
           </a>
