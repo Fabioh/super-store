@@ -1,3 +1,10 @@
-<p>
-  footer works!
-</p>
+
+<div>
+  <p [hidden]="!loading">Carregando ...</p>
+</div>
+
+<div>
+  <p>Title: {{nodeStr.title}}</p>
+  <p>Version: {{nodeStr.version}}</p>
+</div>
+

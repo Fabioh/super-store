@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NodeStrService } from '../../providers/node-str.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  public nodeStr: any = {};
+  public loading: boolean = true;
+
+  constructor(private nodeStrService: NodeStrService) {
+    this.nodeStrService.loadApiVersion().then((result: any) => {
+      this.loading = false
+      this.nodeStr = result;
+    });
+  }
 
   ngOnInit() {
   }

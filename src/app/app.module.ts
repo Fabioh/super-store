@@ -22,6 +22,10 @@ import { Error404PageComponent } from './pages/error-404-page/error-404-page.com
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { PessoasService } from './providers/pessoas.service';
 import { MenuService } from './providers/menu.service';
+import { NodeStrService } from './providers/node-str.service';
+
+import { Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
 	declarations: [
@@ -43,11 +47,13 @@ import { MenuService } from './providers/menu.service';
 	],
 	imports: [
 		BrowserModule,
-		RoutingModule
+		RoutingModule,
+		HttpModule
 	],
 	providers: [
 		PessoasService,
-		MenuService
+		MenuService,
+		NodeStrService
 	],
 	bootstrap: [AppComponent]
 })
