@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { NodeStrService } from '../../providers/node-str.service';
+import { ApiVersion } from '../../model/api-version';
 
 @Component({
   selector: 'app-footer',
@@ -8,17 +10,14 @@ import { NodeStrService } from '../../providers/node-str.service';
 })
 export class FooterComponent implements OnInit {
 
-  public nodeStr: any = {};
-  public loading: boolean = true;
+  public nodeStr: Observable<ApiVersion>;
 
   constructor(private nodeStrService: NodeStrService) {
-    this.nodeStrService.loadApiVersion().then((result: any) => {
-      this.loading = false
-      this.nodeStr = result;
-    });
+    setTimeout(() => {
+      this.nodeStr = this.nodeStrService.loadApiVersion();
+    }, 5000);
   }
 
   ngOnInit() {
   }
-
 }
