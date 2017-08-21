@@ -25,4 +25,9 @@ export class ProductsService {
     });
   }
 
+  scrollTop() {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 0);
+  }
 }
