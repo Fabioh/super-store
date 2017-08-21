@@ -1,3 +1,19 @@
-<p>
-  product-list works!
-</p>
+<section class="products">
+  <div class="container">
+
+    <h2 class="subtitle loading" [hidden] = "!loading">
+      <br /><br /><br />
+      <span>Carregando <strong>games...</strong></span>
+      <br /><br /><br />
+    </h2>
+
+    <div class="columns is-desktop is-multiline">
+      <app-product-card class="column" *ngFor="let product of items; let i = index" [product]="product"
+      class="column"
+      [ngClass]="{'is-half':i==0||i%11==0, 'is-one-quarter':i>0&&i%11!=0}">
+      </app-product-card>
+      
+    </div>
+
+  </div>
+</section>
