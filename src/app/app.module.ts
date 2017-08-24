@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 // importation of the module for deal with routes
 import { RoutingModule } from './app.routes';
 
+// app components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -20,8 +21,16 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { Error404PageComponent } from './pages/error-404-page/error-404-page.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
+
+// services
 import { PessoasService } from './providers/pessoas.service';
 import { MenuService } from './providers/menu.service';
+import { ProductsService } from './providers/products.service';
+import { NodeStrService } from './providers/node-str.service';
+
+import { Http } from '@angular/http';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
 	declarations: [
@@ -43,11 +52,14 @@ import { MenuService } from './providers/menu.service';
 	],
 	imports: [
 		BrowserModule,
-		RoutingModule
+		RoutingModule,
+		HttpModule
 	],
 	providers: [
 		PessoasService,
-		MenuService
+		MenuService,
+		NodeStrService,
+		ProductsService
 	],
 	bootstrap: [AppComponent]
 })
