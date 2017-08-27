@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import * as $ from 'jquery';
 
 @Injectable()
 export class MenuService {
@@ -23,9 +22,9 @@ export class MenuService {
 
   public open(): void {
     this.opened = true;
-    // setTimeout(() => {
-    //   this.fix();
-    // });
+    setTimeout(() => {
+      this.fix();
+    });
   }
 
   public close(): void {
