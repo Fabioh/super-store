@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Product } from '../model/product';
 
-const products = require('./products.json');
+const products: Product[] = require('./products.json');
 const BASEURL = window.location.href.substring(0, window.location.href.length - 1) ;
 
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -28,8 +29,11 @@ export class ProductsService {
   }
 
   scrollTop() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 0);
+    // $('html, body').animate({
+    //   scrollTop: 0
+    // }, 0);
+
+    document.body.scrollTop = 0; // For Chrome, Safari and Opera
+    document.documentElement.scrollTop = 0; // For IE and Firefox
   }
 }

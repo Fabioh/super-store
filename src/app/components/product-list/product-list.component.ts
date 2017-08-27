@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../providers/products.service';
-
+import { Product } from '../../model/product';
 
 @Component({
   selector: 'app-product-list',
@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
   constructor(public productsService: ProductsService) { }
 
   ngOnInit() {
-    this.productsService.list().then((products: any[]) => {
+    this.productsService.list().then((products: Product[]) => {
       setTimeout(() => {
         this.items = products;
         this.loading = false;
