@@ -1,19 +1,19 @@
 <section class="products">
   <div class="container">
-
-    <h2 class="subtitle loading" [hidden] = "!loading">
-      <br /><br /><br />
-      <span>Carregando <strong>games...</strong> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i></span>
-      <br /><br /><br />
-    </h2>
-
-    <div class="columns is-desktop is-multiline">
-      <app-product-card class="column" *ngFor="let product of items; let i = index" [product]="product"
-      class="column"
-      [ngClass]="{'is-half':i==0||i%11==0, 'is-one-quarter':i>0&&i%11!=0}">
-      </app-product-card>
-      
+    <div *ngIf="items | async as products; else loading">
+      <div class="columns is-desktop is-multiline">
+        <app-product-card class="column" *ngFor="let product of products; let i = index" [product]="product"
+            class="column"
+            [ngClass]="{'is-half':i==0||i%11==0, 'is-one-quarter':i>0&&i%11!=0}">
+        </app-product-card>
+      </div>
     </div>
-
+    <ng-template #loading>
+      <h2 class="subtitle loading">
+        <br /><br /><br />
+        <span>Carregando <strong>games...</strong> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i></span>
+        <br /><br /><br />
+      </h2>
+    </ng-template>
   </div>
 </section>
