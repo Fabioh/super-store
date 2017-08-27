@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../providers/products.service';
 import { Product } from '../../model/product';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-product-list',
@@ -9,18 +10,13 @@ import { Product } from '../../model/product';
 })
 export class ProductListComponent implements OnInit {
 
-  public loading: boolean = true;
-  public items: any[];
+  public items: Observable<Product[]>;
 
   constructor(public productsService: ProductsService) { }
 
   ngOnInit() {
-    this.productsService.list().then((products: Product[]) => {
-      setTimeout(() => {
-        this.items = products;
-        this.loading = false;
-      }, 1 * 1000); // 1 segundo de delay
-    });
+    setTimeout(() => {
+      this.items = this.productsService.listWithObservable();
+    }, 5 * 1000);
   }
-
 }
